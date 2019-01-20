@@ -1,1 +1,9 @@
-h
+{% block content %}
+    Upload <a href=upload>here</a>.
+    <h2>Uploads</h2>
+    <ul>
+        {% for upload in uploads %}
+            <li>{{ upload }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
