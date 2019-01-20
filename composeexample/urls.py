@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')), # https://docs.djangoproject.com/en/2.1/topics/auth/default/#module-django.contrib.auth.views
+    path('', include('uploader.urls')),
 ]
