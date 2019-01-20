@@ -1,14 +1,16 @@
 from django.db import models
+from django.conf import settings
+from django.contrib.auth import get_user_model
+
 
 class Upload(models.Model):
 
+    user = models.ForeignKey(
+      get_user_model(),
+      on_delete=models.CASCADE
+    )
     public = models.BooleanField()
-    timestamp = models.TimeField(auto_now=True)
-    file = models.FileField()
-
-    def create(cls, public, file):
-        upload = cls(
-            public = public,
-            file = file
-        )
-        return upload
+    time = models.TimeField()
+    file = models.FileField(
+        upload_to='uploads/%Y/%m/%d/'
+    )
