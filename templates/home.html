@@ -1,9 +1,13 @@
-{% block content %}
-    Upload <a href=upload>here</a>.
-    <h2>Uploads</h2>
-    <ul>
-        {% for upload in uploads %}
-            <li>{{ upload }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+{% if not user.is_authenticated %}
+    Please <a href=accounts/login>login</a>
+    or <a href=accounts/signup>signup</a>.
+{% else %}
+    {% block content %}
+        Upload <a href=upload>here</a>.
+        <a href=accounts/logout>Logout</a>.
+        <h2>Uploads</h2>
+        <ul>
+            
+        </ul>
+    {% endblock %}
+{% endif %}
